@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>Student</title>
+</head>
+<body>
+    <div class="heading">
+        {% if logged_in and role == 3 %}
+        <h1>Welcome {{userdetailsfirstname}} {{userdetailslastname}}!</h1>
+        <h2>Student Privileges Granted</h2>
+        <form method="POST">
+            <input type=hidden value="logoutbutton" name="submitbutton">
+            <input type="submit" value="Logout" name="logoutbutton" id="logoutbutton" class="btn btn-outline-danger btn-sm">
+        </form>
+        <button class="tablinks btn btn-light" onclick="contentcontainer(event, 'content1')">List of all workshop available</button>
+        <button class="tablinks btn btn-light" onclick="contentcontainer(event, 'content2')">List of all workshop joined</button>
+        <div class="container tabcontent" id="content1">
+            <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">List of all workshop available</h1>
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>School</th>
+                        <th>Teacher</th>
+                        <th>Subject</th>
+                        <th>Area</th>
+                        <th>Date and Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in workshop_results %}
+                    <tr>
+                        <td>{{row.School}}</td>
+                        <td>{{row.Teacher}}</td>
+                        <td>{{row.Subject}}</td>
+                        <td>{{row.Area}}</td>
+                        <td>{{row.Time}}</td>
+                        <td>
+                            <form method="POST">
+
+                                <input type=hidden value="hiddenenrollbutton" name="submitbutton">
+                                <input type="hidden" value="{{row.WorkshopID}}" name="workshopid" id="workshopid" />
+                                <input type="hidden" value="{{useridlogon}}" name="useridlogon" id="useridlogon" />
+                                {%set ns = namespace(found=False)%}
+                                {% for enroll in enrollment_results%}
+
+                                {% if useridlogon == enroll.UserID and row.WorkshopID == enroll.WorkshopID%}
+                                {%set ns.found = True%}
+                                <div class="alert alert-warning" role="alert">
+                                    You have enrolled!
+                                </div>
+                                {%endif%}
+                                {%endfor%}
+                                {% if ns.found ==False%}
+                                <input type="submit" value="Enroll" name="enrollbutton" id="enrollbutton" class="btn btn-info btn-sm">
+                                {%else%}
+                                {%endif%}
+
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="container tabcontent" id="content2">
+            <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">List of all workshop joined</h1>
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>School</th>
+                        <th>Teacher</th>
+                        <th>Subject</th>
+                        <th>Area</th>
+                        <th>Date and Time</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in enrollment_results %}
+                    <tr>
+                        <td>{{row.School}}</td>
+                        <td>{{row.Teacher}}</td>
+                        <td>{{row.Subject}}</td>
+                        <td>{{row.Area}}</td>
+                        <td>{{row.Time}}</td>
+                        <td>
+                            <form method="POST" onSubmit="return confirm('Are you sure to you want to unenroll to this workshop?')">
+                                <input type=hidden value="{{row.EnrollID}}" name="enrollid" id="enrollid">
+                                <input type=hidden value="hiddenunenrollbutton" name="submitbutton">
+                                <input type="submit" value="Unenroll" name="unenrollbutton" id="unenrollbutton" class="btn btn-danger btn-sm">
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <h1>Unauthorised</h1>
+        <h2>Please log in. <a href="/login">Log in Here</a></h2>
+        {% endif %}
+    </div>
+</body>
+</html>
+<script>
+    function contentcontainer(evt, contentcontainername) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(contentcontainername).style.display = "block";
+        evt.currentTarget.className += " active";
+    }
+    document.getElementsByClassName('tablinks')[0].click()
+</script>

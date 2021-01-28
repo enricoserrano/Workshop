@@ -1,0 +1,410 @@
+.login-dark {
+    height: 1000px;
+    background: #303030;
+    background-size: cover;
+    position: relative;
+}
+
+    .login-dark form {
+        max-width: 320px;
+        width: 90%;
+        background-color: #000000;
+        padding: 40px;
+        border-radius: 4px;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        color: #fff;
+        box-shadow: 3px 3px 4px rgba(0,0,0,0.2);
+    }
+
+    .login-dark .illustration {
+        text-align: center;
+        padding: 15px 0 20px;
+        font-size: 100px;
+        color: #147373;
+    }
+
+    .login-dark form .form-control {
+        background: none;
+        border: none;
+        border-bottom: 1px solid #434a52;
+        border-radius: 0;
+        box-shadow: none;
+        outline: none;
+        color: inherit;
+    }
+
+    .login-dark form .btn-primary {
+        background: #147373;
+        border: none;
+        border-radius: 4px;
+        padding: 11px;
+        box-shadow: none;
+        margin-top: 26px;
+        text-shadow: none;
+        outline: none;
+    }
+
+        .login-dark form .btn-primary:hover, .login-dark form .btn-primary:active {
+            background: #A2A2A2;
+            outline: none;
+        }
+
+    .login-dark form .forgot {
+        display: block;
+        text-align: center;
+        font-size: 12px;
+        color: #6f7a85;
+        opacity: 0.9;
+        text-decoration: none;
+    }
+
+        .login-dark form .forgot:hover, .login-dark form .forgot:active {
+            opacity: 1;
+            text-decoration: none;
+        }
+
+    .login-dark form .btn-primary:active {
+        transform: translateY(1px);
+    }
+    .heading {
+    text-align: center;
+}
+body {
+    background: #303030;
+}
+h1 {
+    color: #147373;
+}
+h2 {
+    color: #147373;
+}
+.defaultoption {
+    background-color: #147373;
+}
+.signuplabel {
+    color: #147373;
+}
+.dog {
+    position: relative;
+}
+
+.responsive {
+    width: 40%;
+    height: auto;
+}
+.createuser {
+    width: 10%;
+    height: auto;
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #303030;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+.fontcolor {
+    color: #147373;
+}
+.loginbuttonsize {
+    width: 100px;
+    height: 50px;
+}
+.loginbuttonright {
+    float: right;
+}
+.loginbuttonleft {
+    float: left;
+}
+
+@charset "UTF-8";
+
+@-webkit-keyframes shake {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.1) rotate(30deg);
+        transform: scale(0.1) rotate(30deg);
+        -webkit-transform-origin: center bottom;
+        transform-origin: center bottom;
+    }
+
+    50% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+
+    70% {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    from {
+        opacity: 0;
+        -webkit-transform: scale(0.1) rotate(30deg);
+        transform: scale(0.1) rotate(30deg);
+        -webkit-transform-origin: center bottom;
+        transform-origin: center bottom;
+    }
+
+    50% {
+        -webkit-transform: rotate(-10deg);
+        transform: rotate(-10deg);
+    }
+
+    70% {
+        -webkit-transform: rotate(3deg);
+        transform: rotate(3deg);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: scale(1);
+        transform: scale(1);
+    }
+}
+
+.shake {
+    -webkit-animation-name: shake;
+    animation-name: shake;
+}
+
+@-webkit-keyframes zoomin {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes zoomin {
+    from {
+        opacity: 0;
+        -webkit-transform: scale3d(0.3, 0.3, 0.3);
+        transform: scale3d(0.3, 0.3, 0.3);
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+.zoomin {
+    -webkit-animation-name: zoomin;
+    animation-name: zoomin;
+}
+
+@-webkit-keyframes fadedown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadedown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadedown {
+    -webkit-animation-name: fadedown;
+    animation-name: fadedown;
+}
+
+.slideOutUp {
+    -webkit-animation-name: slideOutUp;
+    animation-name: slideOutUp;
+}
+
+.animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
+
+    .animated.infinite {
+        -webkit-animation-iteration-count: infinite;
+        animation-iteration-count: infinite;
+    }
+
+    .animated.delay-1s {
+        -webkit-animation-delay: 1s;
+        animation-delay: 1s;
+    }
+
+    .animated.delay-2s {
+        -webkit-animation-delay: 2s;
+        animation-delay: 2s;
+    }
+
+    .animated.delay-3s {
+        -webkit-animation-delay: 3s;
+        animation-delay: 3s;
+    }
+
+    .animated.delay-4s {
+        -webkit-animation-delay: 4s;
+        animation-delay: 4s;
+    }
+
+    .animated.delay-5s {
+        -webkit-animation-delay: 5s;
+        animation-delay: 5s;
+    }
+
+    .animated.fast {
+        -webkit-animation-duration: 800ms;
+        animation-duration: 800ms;
+    }
+
+    .animated.faster {
+        -webkit-animation-duration: 500ms;
+        animation-duration: 500ms;
+    }
+
+    .animated.slow {
+        -webkit-animation-duration: 2s;
+        animation-duration: 2s;
+    }
+
+    .animated.slower {
+        -webkit-animation-duration: 3s;
+        animation-duration: 3s;
+    }
+
+@media (prefers-reduced-motion) {
+    .animated {
+        -webkit-animation: unset !important;
+        animation: unset !important;
+        -webkit-transition: none !important;
+        transition: none !important;
+    }
+}
+
+@-webkit-keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        -webkit-transform: translate3d(0, -100%, 0);
+        transform: translate3d(0, -100%, 0);
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInDown {
+    -webkit-animation-name: fadeInDown;
+    animation-name: fadeInDown;
+}
+
+.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+    /* Style the buttons inside the tab */
+    .tab button {
+        background-color: inherit;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        transition: 0.3s;
+        font-size: 17px;
+    }
+
+        /* Change background color of buttons on hover */
+        .tab button:hover {
+            background-color: #ddd;
+        }
+
+        /* Create an active/current tablink class */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+/* Style the tab content */
+.tabcontent {
+    display: none;
+}

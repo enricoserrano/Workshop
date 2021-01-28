@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Index</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+</style>
+</head>
+<body>
+    <div class="heading">
+        <br />
+        <div class="fadedown animated">
+            <h1>Pakuranga College Workshop</h1>
+            </div>
+            <div class="dog">
+                <img src="static/images/logo.png" alt="Pakuranga College" class="center responsive zoomin animated" />
+            </div>
+            {% if logged_in %}
+            <h2>Welcome {{userdetailsfirstname}} {{userdetailslastname}}!</h2>
+            {% else %}
+            <button type="button" class="btn btn-light fadedown animated" onclick="location.href = '/login';">Login</button>
+            <button type="button" class="btn btn-light fadedown animated" onclick="location.href = '/signup';">Signup</button>
+            {% endif %}
+            {% if role == 1 %}
+            <button type="button" class="btn btn-dark" onclick="location.href = '/admin';">Enter as Admin</button>
+            {% endif %}
+            {% if role == 2 %}
+            <button type="button" class="btn btn-warning" onclick="location.href = '/teacher';">Enter as Teacher</button>
+            {% endif %}
+            {% if role == 3 %}
+            <button type="button" class="btn btn-info" onclick="location.href = '/student';">Enter as Student</button>
+            {% endif %}
+
+
+
+        </div>
+</body>
+</html>

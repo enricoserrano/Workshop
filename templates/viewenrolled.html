@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>ViewEnrolled</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/css/mdb.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <div class="heading">
+        {% if logged_in and role == 2 %}
+        <h1>Welcome {{userdetailsfirstname}} {{userdetailslastname}}!</h1>
+        <h2>Teacher Privileges Granted</h2>
+        <div class="container">
+            <h1 class="font-weight-light text-center text-lg-left mt-4 mb-0">Enrolled Users</h1>
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in enrolled_results %}
+                    <tr>
+                        <td>{{row.FirstName}}</td>
+                        <td>{{row.LastName}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+            <form method="POST">
+                <input type=hidden value="backbutton" name="submitbutton">
+                <input type="submit" value="Go back to teacher page" name="backbutton" id="backbutton" class="btn btn-default btn-sm">
+            </form>
+        {% else %}
+        <h1>Unauthorised</h1>
+        <h2>Please log in. <a href="/login">Log in Here</a></h2>
+        {% endif %}
+    </div>
+        </body>
+</html>
+<script>
+
+    // Disable form submissions if there are invalid fields
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Get the forms we want to add validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+</script>
