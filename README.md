@@ -10,7 +10,7 @@ Student Role - Able to see the lists of the sessions teacher/admin have created 
 <br>
 Teacher Role - Able to add a specific paper subject eg. Maths, English etc. They are then able to create a session / workshop (Subject, Teacher Name, Workshop Location)
 <br>
-Admin Role - Have the privileges of the teacher role and be able to delete users and modify their roles
+Admin Role - Have the privileges of the teacher role and be able to delete users and modify their roles. They can also see all the users and all the workshops that are created
 <br>
 <br>
 <b>Preview</b>
@@ -35,13 +35,13 @@ You are able to access this website through the link (http://enricoserrano.pytho
 <br>
 Username: teacher
 <br>
-password: 123
+password: teacher
 <br>
 <b>Student Role Info</b>
 <br>
 Username: student
 <br>
-password: 123
+password: student
 <br>
 When you create an account, you are automatically granted a student role by default
 <br>
